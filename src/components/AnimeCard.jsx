@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const AnimeCard = ({ anime: { title, score, images, year, type } }) => {
+const AnimeCard = ({ anime: { mal_id, title, score, images, year, type } }) => {
   return (
-    <div className="movie-card">
+    <Link to={`/anime/${mal_id}`} className="movie-card block">
       <img
         src={images?.jpg?.image_url || '/no-movie.png'}
         alt={title}
@@ -24,7 +25,7 @@ const AnimeCard = ({ anime: { title, score, images, year, type } }) => {
           <p className="year">{year || 'N/A'}</p>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

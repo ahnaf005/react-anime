@@ -152,6 +152,92 @@
   font-family: "Bebas Neue", sans-serif;
 }
 
+@layer components {
+  .back-btn {
+    @apply inline-block text-light-200 hover:text-white text-sm font-medium mb-8 transition-colors;
+  }
+
+  .detail-hero {
+    @apply flex flex-col md:flex-row gap-8 mb-12;
+  }
+
+  .detail-poster {
+    @apply w-full md:w-64 lg:w-72 rounded-2xl object-cover shrink-0 shadow-lg shadow-black/50;
+  }
+
+  .detail-info {
+    @apply flex flex-col gap-4;
+  }
+
+  .detail-title {
+    @apply text-left text-3xl sm:text-4xl mx-0 max-w-full leading-tight;
+  }
+
+  .detail-title-en {
+    @apply text-light-200 text-lg -mt-2;
+  }
+
+  .detail-meta {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .meta-badge {
+    @apply bg-light-100/10 text-light-200 text-sm font-medium px-3 py-1 rounded-full flex items-center;
+  }
+
+  .detail-genres {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .genre-tag {
+    @apply bg-[#AB8BFF]/20 text-[#D6C7FF] text-xs font-semibold px-3 py-1 rounded-full;
+  }
+
+  .detail-synopsis {
+    @apply text-gray-100 text-sm leading-relaxed line-clamp-6 md:line-clamp-none;
+  }
+
+  .detail-studio {
+    @apply text-gray-100 text-sm;
+  }
+
+  .detail-section {
+    @apply space-y-5 mb-12;
+  }
+
+  .gallery-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3;
+  }
+
+  .gallery-img {
+    @apply w-full aspect-video object-cover rounded-xl;
+  }
+
+  .characters-grid {
+    @apply grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4;
+  }
+
+  .character-card {
+    @apply flex flex-col items-center gap-2 text-center;
+  }
+
+  .character-img {
+    @apply w-full aspect-square object-cover object-top rounded-xl;
+  }
+
+  .character-info {
+    @apply w-full;
+  }
+
+  .character-name {
+    @apply text-white text-xs font-semibold line-clamp-2 leading-tight;
+  }
+
+  .character-role {
+    @apply text-gray-100 text-xs;
+  }
+}
+
 @utility hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
