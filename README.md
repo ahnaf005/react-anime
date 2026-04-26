@@ -1,18 +1,38 @@
-# React + Vite
+# React Anime
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app for discovering and exploring anime, powered by the [Jikan API](https://jikan.moe/) (MyAnimeList unofficial API).
 
-Currently, two official plugins are available:
+**Live demo:** [https://react-anime-shows.vercel.app/](https://react-anime-shows.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **Top Anime** — Browse the highest-ranked anime on MyAnimeList on the home page
+- **Search** — Search through thousands of anime titles with debounced input to avoid excessive API calls
+- **Anime Detail Page** — Click any card to open a dedicated detail page showing:
+  - Title, score, type, episode count, year, and airing status
+  - Genre tags and studio info
+  - Full synopsis
+- **Image Gallery** — Browse official anime artwork and screenshots on the detail page
+- **Lightbox Slideshow** — Click any gallery image to open a full-screen slideshow with:
+  - Left / right navigation arrows
+  - Keyboard support (`←` `→` to navigate, `Esc` to close)
+  - Image counter (e.g. 3 / 12)
+  - Click outside to close
+- **Characters** — View main and supporting characters with their images on the detail page
 
-Note: This will impact Vite dev & build performances.
+## Tech Stack
 
-## Expanding the ESLint configuration
+- [React 19](https://react.dev/)
+- [Vite](https://vite.dev/)
+- [React Router v7](https://reactrouter.com/)
+- [Tailwind CSS v4](https://tailwindcss.com/)
+- [Jikan REST API v4](https://docs.api.jikan.moe/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
