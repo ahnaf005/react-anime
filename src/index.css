@@ -209,8 +209,48 @@
     @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3;
   }
 
+  .gallery-btn {
+    @apply block w-full rounded-xl overflow-hidden cursor-pointer;
+
+    &:hover img {
+      @apply scale-105 brightness-110;
+    }
+  }
+
   .gallery-img {
-    @apply w-full aspect-video object-cover rounded-xl;
+    @apply w-full aspect-video object-cover transition-transform duration-300;
+  }
+
+  .lightbox-overlay {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black/90;
+  }
+
+  .lightbox-close {
+    @apply absolute top-4 right-5 text-white text-3xl font-light leading-none hover:text-light-200 transition-colors z-10 cursor-pointer;
+  }
+
+  .lightbox-counter {
+    @apply absolute top-5 left-1/2 -translate-x-1/2 text-light-200 text-sm;
+  }
+
+  .lightbox-img-wrap {
+    @apply max-w-[90vw] max-h-[85vh] flex items-center justify-center;
+  }
+
+  .lightbox-img {
+    @apply max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl;
+  }
+
+  .lightbox-nav {
+    @apply absolute top-1/2 -translate-y-1/2 text-white text-6xl font-thin leading-none hover:text-light-200 transition-colors z-10 px-4 cursor-pointer select-none;
+  }
+
+  .lightbox-prev {
+    @apply left-2;
+  }
+
+  .lightbox-next {
+    @apply right-2;
   }
 
   .characters-grid {

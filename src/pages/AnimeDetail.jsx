@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Spinner from '../components/Spinner.jsx'
+import Lightbox from '../components/Lightbox.jsx'
 
 const API_BASE_URL = 'https://api.jikan.moe/v4';
 
@@ -12,6 +13,13 @@ const AnimeDetail = () => {
   const [characters, setCharacters] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+
+  const galleryPictures = pictures.slice(0, 12);
+
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+  const prevImage = useCallback(() => setLightboxIndex(i => (i - 1 + galleryPictures.length) % galleryPictures.length), [galleryPictures.length]);
+  const nextImage = useCallback(() => setLightboxIndex(i => (i + 1) % galleryPictures.length), [galleryPictures.length]);
 
   useEffect(() => {
     const fetchAll = async () => {
@@ -131,16 +139,32 @@ const AnimeDetail = () => {
           <section className="detail-section">
             <h2>Gallery</h2>
             <div className="gallery-grid">
-              {pictures.slice(0, 12).map((pic, i) => (
-                <img
+              {galleryPictures.map((pic, i) => (
+                <button
                   key={i}
-                  src={pic.jpg?.large_image_url || pic.jpg?.image_url}
-                  alt={`${anime.title} screenshot ${i + 1}`}
-                  className="gallery-img"
-                />
+                  className="gallery-btn"
+                  onClick={() => setLightboxIndex(i)}
+                  aria-label={`Open image ${i + 1}`}
+                >
+                  <img
+                    src={pic.jpg?.large_image_url || pic.jpg?.image_url}
+                    alt={`${anime.title} screenshot ${i + 1}`}
+                    className="gallery-img"
+                  />
+                </button>
               ))}
             </div>
           </section>
+        )}
+
+        {lightboxIndex !== null && (
+          <Lightbox
+            images={galleryPictures}
+            currentIndex={lightboxIndex}
+            onClose={closeLightbox}
+            onPrev={prevImage}
+            onNext={nextImage}
+          />
         )}
 
         {/* Characters */}
